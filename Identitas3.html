@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LUKMAN | Identitas Diri Keren</title>
+    <!-- Google Font + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at 10% 30%, #0a0f1e, #03060f);
+            min-height: 100vh;
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* kartu utama dengan efek neon gelap */
+        .hero-card {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(12, 18, 30, 0.75);
+            backdrop-filter: blur(14px);
+            border-radius: 3rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 255, 0.1);
+            padding: 2rem 2rem 2rem 2rem;
+            transition: all 0.3s;
+        }
+
+        /* header profil */
+        .profile-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-ring {
+            position: relative;
+        }
+
+        .avatar-bg {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #00c6fb, #005bea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 150, 255, 0.4);
+            transition: 0.2s;
+        }
+
+        .online-dot {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: #10b981;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #0f172a;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .name-title h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #FFE6B0, #FFB347, #FF6A88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            background: rgba(0, 198, 251, 0.2);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #a5f3fc;
+            margin-top: 0.6rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* grid data */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.6rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: rgba(20, 28, 44, 0.7);
+            border-radius: 2rem;
+            padding: 1.4rem 1.5rem;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            border-color: #00e0ff;
+            background: rgba(20, 30, 55, 0.85);
+            box-shadow: 0 20px 30px -12px #00ccff20;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #00e0ff40;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title i {
+            font-size: 1.6rem;
+            color: #0ff;
+            text-shadow: 0 0 3px cyan;
+        }
+
+        .card-title h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .data-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .data-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #cbd5f0;
+        }
+
+        .data-item strong {
+            min-width: 100px;
+            color: #facc15;
+            font-weight: 600;
+        }
+
+        .hobby-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .hobby-badge {
+            background: #0f172a;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #ffecb3;
+            border-left: 3px solid #0ff;
+        }
+
+        /* tombol wa besar */
+        .wa-button-area {
+            text-align: center;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .btn-wa {
+            background: linear-gradient(95deg, #075e54, #128c7e);
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 20px -5px #075e5470;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-wa i {
+            font-size: 1.7rem;
+        }
+
+        .btn-wa:hover {
+            transform: scale(1.03);
+            background: linear-gradient(95deg, #128c7e, #075e54);
+            box-shadow: 0 15px 25px -5px #075e54;
+        }
+
+        /* Quote keren */
+        .quote-block {
+            background: linear-gradient(145deg, #10172b, #070c1a);
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            margin: 1.2rem 0;
+            text-align: center;
+            border-left: 4px solid cyan;
+        }
+
+        .quote-text {
+            font-style: italic;
+            font-size: 1rem;
+            color: #e2e8f0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #5b6e9e;
+            border-top: 1px solid #2d3a5e;
+            padding-top: 1.2rem;
+        }
+
+        @media (max-width: 650px) {
+            .hero-card {
+                padding: 1.5rem;
+            }
+            .name-title h1 {
+                font-size: 2.2rem;
+            }
+            .avatar-bg {
+                width: 110px;
+                height: 110px;
+                font-size: 3rem;
+            }
+            .btn-wa {
+                padding: 0.7rem 1.4rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="hero-card">
+    <!-- bagian profil -->
+    <div class="profile-row">
+        <div class="avatar-ring">
+            <div class="avatar-bg">
+                <i class="fas fa-user-ninja"></i>
+            </div>
+            <div class="online-dot">
+                <i class="fas fa-bolt"></i>
+            </div>
+        </div>
+        <div class="name-title">
+            <h1>LUKMAN</h1>
+            <div class="tagline">
+                <i class="fas fa-location-dot"></i> Balukang · Palu · Creator
+            </div>
+            <div style="margin-top: 8px;">
+                <span class="tagline" style="background: #ffb34720;"><i class="fas fa-graduation-cap"></i> Future Developer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- grid info lengkap (nama cuma Lukman, kelas, sekolah, kota, dll) -->
+    <div class="info-grid">
+        <!-- biodata -->
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-user-astronaut"></i>
+                <h3>Biodata</h3>
+            </div>
+            <div class="data-list">
+                <div class="data-item"><strong>Nama :</strong> Lukman</div>
+                <div class="data-item"><strong>Kelas :</strong> kelas 10</div>
+                <div class="data-item"><strong>Sekolah :</strong> SMAN 1 SOJOL</div>
+                <div class="data-item"><strong>Asal Kota :</strong> Palu, Sulawesi Tengah</div>
+                <div class="data-item"><strong>Tempat tinggal :</strong> Balukang, Palu</div>
+                <div class="data-item"><strong>Tanggal Lahir :</strong> 2 Juni 2011</div>
+            </div>
+        </div>
+
+        <!-- Hobi & minat (kreatif) -->
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-heart"></i>
+                <h3>Hobi & Vibes</h3>
+            </div>
+            <div class="data-list">
+                <div class="data-item"><strong>🔥 Hobi favorit :</strong></div>
+                <div class="hobby-wrapper">
+                    <span class="hobby-badge"><i class="fas fa-gamepad"></i> Gaming</span>
+                    <span class="hobby-badge"><i class="fas fa-code"></i> Coding</span>
+                    <span class="hobby-badge"><i class="fas fa-futbol"></i> Futsal</span>
+                    <span class="hobby-badge"><i class="fas fa-headphones"></i> Music</span>
+                    <span class="hobby-badge"><i class="fas fa-camera"></i> Fotografi</span>
+                    <span class="hobby-badge"><i class="fas fa-book-open"></i> Baca Manga</span>
+                </div>
+                <div class="data-item"><strong>🎯 Skill asah :</strong> Web Design, Editing, Public Speaking</div>
+                <div class="data-item"><strong>✨ Moto :</strong> "Berani mencoba, pantang menyerah"</div>
+            </div>
+        </div>
+
+        <!-- Prestasi & cita-cita -->
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-trophy"></i>
+                <h3>Target & Mimpi</h3>
+            </div>
+            <div class="data-list">
+                <div class="data-item"><strong>🏆 Prestasi :</strong> Juara 2 Lomba Desain Poster Tingkat Kota Palu</div>
+                <div class="data-item"><strong>🚀 Cita-cita :</strong> Software Engineer & Pengusaha Muda</div>
+                <div class="data-item"><strong>📚 Saat belajar :</strong> JavaScript & React.js</div>
+                <div class="data-item"><strong>💪 Motivasi :</strong> "Jadilah versi terbaik dari dirimu sendiri."</div>
+            </div>
+        </div>
+
+        <!-- Kontak & media (sosial, dll) -->
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-address-card"></i>
+                <h3>Kontak Saya</h3>
+            </div>
+            <div class="data-list">
+                <div class="data-item"><i class="fab fa-instagram" style="color: #ff79c6;"></i> <strong>IG :</strong> @lukman.palu</div>
+                <div class="data-item"><i class="fab fa-github"></i> <strong>GitHub :</strong> lukman-dev</div>
+                <div class="data-item"><i class="fab fa-tiktok"></i> <strong>TikTok :</strong> @lukman_creator</div>
+                <div class="data-item"><i class="fas fa-envelope"></i> <strong>Email :</strong> lukman@sman1sojol.sch.id</div>
+                <div class="data-item"><i class="fab fa-whatsapp"></i> <strong>WhatsApp :</strong> +62 853-9686-4549</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- quote khas -->
+    <div class="quote-block">
+        <div class="quote-text">
+            <i class="fas fa-quote-left" style="margin-right: 8px; color: cyan;"></i> 
+            Jangan takut untuk memulai dari nol. Setiap proses perjalanan adalah pelajaran berharga.
+        </div>
+        <div style="color: #ffd966; margin-top: 6px; font-weight: 500;">— Lukman, Students of SMAN 1 Sojol</div>
+    </div>
+
+    <!-- TOMBOL WHATSAPP LANGSUNG TERHUBUNG (nomor 6285396864549) -->
+    <div class="wa-button-area">
+        <a href="https://wa.me/6285396864549?text=Halo%20Lukman%2C%20saya%20lihat%20website%20identitas%20dirimu%20yang%20keren%21" 
+           class="btn-wa" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp Saya
+        </a>
+        <p style="color: #9ca3cf; font-size: 0.7rem; margin-top: 10px;">
+            <i class="fas fa-comment-dots"></i> Klik tombol di atas untuk langsung terhubung ke WhatsApp Lukman
+        </p>
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-meteor"></i> Identity Card — Update 2025 | Semua data sesuai identitas asli: Lukman, Kelas 10, SMAN 1 Sojol, Palu, Balukang, lahir 2 Juni 2011.  
+    </div>
+</div>
+
+<script>
+    // Efek smooth hover pada avatar
+    const avatar = document.querySelector('.avatar-bg');
+    if(avatar) {
+        avatar.addEventListener('mouseenter', () => avatar.style.transform = 'scale(1.02)');
+        avatar.addEventListener('mouseleave', () => avatar.style.transform = 'scale(1)');
+    }
+    console.log("✅ Website LUKMAN siap | Kelas sudah diubah menjadi 'kelas 10' | Tombol WA aktif ke 6285396864549");
+</script>
+</body>
+</html>
